@@ -1,3 +1,5 @@
+var color = "gray";
+
 var grid = document.getElementById("grid-container");
 loadArea(100, 50);
 
@@ -7,10 +9,39 @@ resize.addEventListener("click", getNewArea);
 var clear = document.getElementById("clear");
 clear.addEventListener("click", clearArea);
 
+var gray = document.getElementById("gray");
+gray.addEventListener("click", grayColor);
+
+var rainbow = document.getElementById("rainbow");
+rainbow.addEventListener("click", rainbowColor);
+
+var slider = document.getElementById("range");
 sliderErase(100);
 
+function grayColor() {
+  window.onmouseover = null;
+  color = "gray";
+}
+
+function rainbowColor() {
+  var o = Math.round,
+    r = Math.random,
+    s = 256;
+  window.onmouseover = () => {
+    color =
+      "rgba(" +
+      o(r() * s) +
+      "," +
+      o(r() * s) +
+      "," +
+      o(r() * s) +
+      "," +
+      r().toFixed(1) +
+      ")";
+  };
+}
+
 function sliderErase(width) {
-  var slider = document.getElementById("range");
   slider.setAttribute("max", width - 1);
   var gridItems = document.querySelectorAll(".grid-item");
   slider.oninput = () => {
@@ -51,7 +82,7 @@ function clearArea() {
 }
 
 function draw(e) {
-  e.currentTarget.style.backgroundColor = "gray";
+  e.currentTarget.style.backgroundColor = color;
 }
 
 function mouseDownListener() {
