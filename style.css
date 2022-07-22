@@ -13,7 +13,7 @@ body {
 #grid-container {
   display: grid;
   background-color: black;
-  border-radius: 5px;
+  border-radius: 5px 5px 0 0;
   padding: 10px;
   margin-top: 10px;
 }
@@ -59,6 +59,10 @@ body {
   border-radius: 7.5px;
 }
 
+::placeholder {
+  text-align: center;
+}
+
 input:focus {
   outline: none;
 }
@@ -87,4 +91,42 @@ button:hover {
   color: red;
   margin-top: 0;
   margin-bottom: 10px;
+}
+
+.slide-container {
+  background-color: black;
+  border-radius: 0 0 5px 5px;
+  padding: 0 10px 5px;
+}
+
+/* The slider itself */
+.slider {
+  margin: 0;
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 25px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+  border-radius: 12.5px;
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: gray; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+  border-radius: 50%;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: black; /* Green background */
+  cursor: pointer; /* Cursor on hover */
 }
