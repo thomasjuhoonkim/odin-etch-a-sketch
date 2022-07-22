@@ -9,6 +9,9 @@ resize.addEventListener("click", getNewArea);
 var clear = document.getElementById("clear");
 clear.addEventListener("click", clearArea);
 
+var eraser = document.getElementById("eraser");
+eraser.addEventListener("click", eraserColor);
+
 var gray = document.getElementById("gray");
 gray.addEventListener("click", grayColor);
 
@@ -17,6 +20,11 @@ rainbow.addEventListener("click", rainbowColor);
 
 var slider = document.getElementById("range");
 sliderErase(100);
+
+function eraserColor() {
+  window.onmouseover = null;
+  color = "white";
+}
 
 function grayColor() {
   window.onmouseover = null;
